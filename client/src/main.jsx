@@ -2,7 +2,7 @@ import { createRoot } from "react-dom/client";
 import { RouterProvider } from "react-router";
 import { ClerkProvider } from "@clerk/clerk-react";
 import { rootAuthLoader } from "@clerk/react-router/ssr.server";
-import router from "./routes/routes";
+import router from "./routes";
 import "./index.css";
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;

@@ -1,13 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IKImage } from "./IKImage";
 import { FiMenu, FiX } from "react-icons/fi";
 import { Link, NavLink } from "react-router";
-import {
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  UserButton,
-} from "@clerk/clerk-react";
+import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
 
 const menus = [
   { title: "Home", link: "" },
@@ -18,6 +13,19 @@ const menus = [
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+      if (windowWidth < 768) setOpen(false);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <div className="w-full h-16 md:h-20 flex items-center justify-between">
@@ -31,39 +39,51 @@ export const Navbar = () => {
         <span className="text-2xl font-bold text-gray-800">ToniBlog</span>
       </Link>
       {/* MOBILE MENU */}
-      <div className="md:hidden sm:flex sm:flex-col px-2">
+      <div className="flex flex-col md:hidden ">
         <div
-          className="cursor-pointer text-4xl"
+          className="cursor-pointer text-4xl z-50"
           onClick={() => setOpen((prev) => !prev)}
         >
-          <span>{open ? <FiX /> : <FiMenu />}</span>
+          {open ? (
+            <span className="fixed top-8 right-2">
+              <FiX />
+            </span>
+          ) : (
+            <span>
+              <FiMenu />{" "}
+            </span>
+          )}
         </div>
         {/* MOBILE LINK LIST */}
         <div
-          className={`absolute top-16 bottom-0 w-full h-full max-h-svh flex flex-col items-center justify-center gap-8 transition-all ease-in-out text-lg font-medium ${
-            open ? "right-0" : "-right-[100%]"
+          className={`absolute top-0 bottom-0 flex flex-col w-full h-full max-h-svh items-center justify-center gap-8 transition-all ease-in-out text-lg font-medium ${
+            open
+              ? "left-0 before:block before:fixed before:bg-gray-800 before:opacity-80 before:top-0 before:bottom-0 before:left-0 before:right-0 before:z-0"
+              : "left-[100%] before:hidden"
           }`}
         >
-          {menus.map((menu, index) => (
-            <Link
-              key={`mb${index}`}
-              to={menu.link}
-              className="text-gray-800 hover:text-gray-600"
-            >
-              {menu.title}
-            </Link>
-          ))}
-          <SignedOut>
-            <Link to="sign-in">
-              <button className="py-2 px-4 rounded-3xl bg-blue-800 text-white">
-                Login 👋
-              </button>
-            </Link>
-            <SignInButton />
-          </SignedOut>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
+          <div className="fixed w-full h-full flex flex-col justify-center items-center gap-10 backdrop-blur-md z-40">
+            {menus.map((menu, index) => (
+              <Link
+                key={`mb${index}`}
+                to={menu.link}
+                className="text-white text-xl font-semibold hover:text-blue-500"
+                onClick={() => setOpen(false)}
+              >
+                {menu.title}
+              </Link>
+            ))}
+            <SignedOut>
+              <Link to="sign-in" onClick={() => setOpen(false)}>
+                <button className="py-2 px-4 rounded-3xl bg-blue-800 hover:bg-white hover:border-slate-600 hover:text-blue-500 text-white font-semibold">
+                  Login 👋
+                </button>
+              </Link>
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+          </div>
         </div>
       </div>
       {/* DESKTOP MENU */}
