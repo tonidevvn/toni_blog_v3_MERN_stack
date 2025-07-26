@@ -5,7 +5,7 @@ import RecentPosts from "../components/RecentPosts";
 
 const HomePage = () => {
   return (
-    <>
+    <div className="flex flex-col gap-4">
       {/* BREAKCRUMB */}
       <div className="flex gap-4">
         <Link to="/">Home</Link>
@@ -20,7 +20,8 @@ const HomePage = () => {
             Discover Inspiring Blogs and Articles
           </h1>
           <p className="mt-8 text-md md:text-xl lg:text-2xl">
-            Explore insightful stories, share your ideas, and connect with a community passionate about learning and growth.
+            Explore insightful stories, share your ideas, and connect with a
+            community passionate about learning and growth.
           </p>
         </div>
         {/* animated button */}
@@ -67,8 +68,8 @@ const HomePage = () => {
       {/* FEATURED POSTS */}
       <FeaturedPosts />
       {/* POST LIST */}
-      <RecentPosts />
-    </>
+      <RecentPosts title="Recent Posts" />
+    </div>
   );
 };
 

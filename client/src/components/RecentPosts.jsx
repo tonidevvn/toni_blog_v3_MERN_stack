@@ -54,14 +54,14 @@ const posts = [
   },
 ];
 
-const RecentPosts = () => {
+const RecentPosts = ({ title }) => {
   return (
-    <div className="recent-posts my-10">
-      <h1>Recent Posts</h1>
+    <div className="recent-posts">
+      {title ? <h1>{title}</h1> : ""}
       <div className="flex flex-col w-full gap-8">
         {posts.map((post, index) => (
           <div
-            className="recent-post flex w-full lg:h-1/3 gap-4 justify-between"
+            className="recent-post flex w-full lg:h-1/3 gap-6 justify-between"
             key={`recentPost-${index}`}
           >
             <div className="thumbnail w-1/3 max-w-[360px]">
@@ -73,7 +73,7 @@ const RecentPosts = () => {
                 />
               </Link>
             </div>
-            <div className="post-meta-box flex flex-col w-2/3 gap-2">
+            <div className="post-meta-box flex flex-col w-2/3 gap-1">
               <h3 className="post-title font-semibold text-lg md:text-2xl lg:text-2xl xl:text-2xl text-gray-800">
                 <Link to={post.link}>{post.title}</Link>
               </h3>

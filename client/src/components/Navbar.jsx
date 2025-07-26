@@ -6,8 +6,8 @@ import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
 
 const menus = [
   { title: "Home", link: "" },
-  { title: "Trending", link: "trending" },
-  { title: "Most Popular", link: "most-popular" },
+  { title: "Trending", link: "posts/trending" },
+  { title: "Most Popular", link: "posts/most-popular" },
   { title: "About", link: "about" },
 ];
 

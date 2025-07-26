@@ -1,6 +1,6 @@
 const PostMenuActions = () => {
   return (
-    <div className="my-8">
+    <div className="flex flex-col">
       <h3>Actions</h3>
       <div className="post-actions flex flex-col gap-4">
         <div className="post-action flex gap-4 hover:text-red-500">

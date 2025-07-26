@@ -1,11 +1,11 @@
 const SearchBox = ({ title = "" }) => {
   return (
-    <div>
+    <div className="flex flex-col">
       {title.trim().length > 0 ? <h3>{title}</h3> : ""}
       <div
         className={
           title.trim().length > 0
-            ? "bg-white rounded-full flex items-center align-middle p-1 px-2 gap-2 text-gray-500"
+            ? "bg-white rounded-full flex items-center align-middle p-1 px-2 gap-1 text-gray-500"
             : "bg-[#e6e6ff] rounded-full flex items-center align-middle p-1 px-2 gap-2 text-gray-500"
         }
       >
@@ -13,9 +13,9 @@ const SearchBox = ({ title = "" }) => {
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          strokeWidth="1.5"
+          strokeWidth={1.5}
           stroke="currentColor"
-          width='18'
+          className="size-6"
         >
           <path
             strokeLinecap="round"

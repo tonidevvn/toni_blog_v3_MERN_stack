@@ -88,25 +88,26 @@ const SinglePostPage = () => {
           </Link>
         </div>
       </div>
-      <div className="post-body flex gap-8 mt-4 mb-8">
-        <div
-          className="post-content w-full lg:w-4/5 text-justify"
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        ></div>
-        <div className="post-sidebar hidden md:flex md:flex-col md:w-2/5 lg:w-1/5 ">
+      <div className="flex gap-8 ">
+        <div className="post-body flex flex-col gap-8 mt-4 mb-8 w-full lg:w-4/5">
+          <div
+            className="post-content w-full text-justify"
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          ></div>
+
+          <div className="post-comments">
+            <CommentBox title="Comments" />
+            <Comments />
+          </div>
+        </div>
+        <div className="post-sidebar hidden md:flex md:flex-col lg:w-1/5 h-max sticky top-4 gap-4">
           {/* Author bio */}
           <AuthorBio />
           {/* Post actions */}
           <PostMenuActions />
           {/* Categories */}
           <ListCategories />
-          {/* Search */}
-          <SearchBox title="Search" />
         </div>
-      </div>
-      <div className="post-comments">
-        <CommentBox title="Comments" />
-        <Comments />
       </div>
     </div>
   );

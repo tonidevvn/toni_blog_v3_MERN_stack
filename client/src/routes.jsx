@@ -13,7 +13,7 @@ const router = createBrowserRouter([
     Component: MainLayout,
     children: [
       { index: true, Component: HomePage },
-      { path: "posts", Component: PostListPage },
+      { path: "posts/*", Component: PostListPage },
       {
         path: ":slug",
         Component: SinglePostPage,

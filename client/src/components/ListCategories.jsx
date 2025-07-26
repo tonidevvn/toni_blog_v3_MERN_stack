@@ -11,12 +11,16 @@ const categories = [
 
 const ListCategories = () => {
   return (
-    <div className="my-8">
+    <div className="flex flex-col">
       <h3>Categories</h3>
       {/* links */}
       <div className="flex flex-col flex-wrap gap-4">
         {categories.map((cat, index) => (
-          <Link to={cat.link} key={`category-${index}`} className="hover:text-blue-800 underline">
+          <Link
+            to={cat.link}
+            key={`category-${index}`}
+            className="hover:text-blue-800 underline"
+          >
             {cat.name}
           </Link>
         ))}

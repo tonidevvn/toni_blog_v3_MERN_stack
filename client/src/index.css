@@ -53,3 +53,16 @@ h6 {
   margin-bottom: 0.4rem;
   color: #6666a3;
 }
+
+.ql-toolbar.ql-snow {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.ql-container.ql-snow {
+  border: none;
+}
+.ql-container, .ql-editor, .ql-toolbar.ql-snow {  
+  font-family: 'Montserrat', sans-serif;
+  font-size: medium;
+}
