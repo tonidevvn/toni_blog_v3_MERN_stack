@@ -2,34 +2,30 @@ import { Link } from "react-router";
 import { IKImage } from "./IKImage";
 
 const MainPost = {
-  title:
-    "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, autem!",
+  title: "How to Build a Modern Blog with React and Node.js",
   publishedTime: "2 days ago",
-  category: { title: "Web Design", link: "/web-design" },
+  category: { title: "Web Development", link: "/web-development" },
   link: "/featured-post-1",
   thumbnail: "/featured1.jpeg",
 };
 
 const OtherPosts = [
   {
-    title:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, autem!",
+    title: "10 Essential Web Design Principles for Modern Websites",
     publishedTime: "2 days ago",
     category: { title: "Web Design", link: "/web-design" },
     link: "/featured-post-2",
     thumbnail: "/featured2.jpeg",
   },
   {
-    title:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, labore!",
+    title: "How to Create Stunning Landing Pages That Convert",
     publishedTime: "2 days ago",
     category: { title: "Web Design", link: "/web-design" },
     link: "/featured-post-3",
     thumbnail: "/featured3.jpeg",
   },
   {
-    title:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, fugiat!",
+    title: "Responsive Design: Best Practices for Every Device",
     publishedTime: "2 days ago",
     category: { title: "Web Design", link: "/web-design" },
     link: "/featured-post-4",
@@ -46,6 +42,7 @@ const FeaturedPosts = () => {
           <Link to={MainPost.link}>
             <IKImage
               src={MainPost.thumbnail}
+              w={980}
               className="w-full max-h-[320px] object-cover object-center border-white"
             />
           </Link>
@@ -73,6 +70,7 @@ const FeaturedPosts = () => {
               <Link to={post.link}>
                 <IKImage
                   src={post.thumbnail}
+                  w={320}
                   className="w-full max-h-32 md:max-h-36 object-cover object-center border-white"
                 />
               </Link>

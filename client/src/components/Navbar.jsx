@@ -30,13 +30,15 @@ export const Navbar = () => {
   return (
     <div className="w-full h-16 md:h-20 flex items-center justify-between">
       {/* LOGO */}
-      <Link className="flex items-center" to="/">
+      <Link className="flex items-center focus:outline-none" to="/">
         <IKImage
           src="/logo.png"
           className="h-8 w-8 mr-6 rounded-[8px]"
           alt="Toni blog logo"
         />
-        <span className="text-2xl font-bold text-gray-800">ToniBlog</span>
+        <span className="text-2xl font-bold text-gray-800 hover:text-blue-800">
+          ToniBlog
+        </span>
       </Link>
       {/* MOBILE MENU */}
       <div className="flex flex-col md:hidden ">

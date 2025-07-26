@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import MainCategories from "../components/MainCategories";
 import FeaturedPosts from "../components/FeaturedPosts";
+import RecentPosts from "../components/RecentPosts";
 
 const HomePage = () => {
   return (
@@ -16,11 +17,10 @@ const HomePage = () => {
         {/* titles */}
         <div className="">
           <h1 className="text-gray-800 text-2xl md:text-5xl lg:text-6xl font-bold">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            Discover Inspiring Blogs and Articles
           </h1>
           <p className="mt-8 text-md md:text-xl lg:text-2xl">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi
-            nesciunt corrupti obcaecati quas. Ratione fugiat tempore saepe.
+            Explore insightful stories, share your ideas, and connect with a community passionate about learning and growth.
           </p>
         </div>
         {/* animated button */}
@@ -67,7 +67,7 @@ const HomePage = () => {
       {/* FEATURED POSTS */}
       <FeaturedPosts />
       {/* POST LIST */}
-      {/* FOOTER */}
+      <RecentPosts />
     </>
   );
 };

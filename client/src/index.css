@@ -12,3 +12,44 @@ body {
 .animatedButton{
   animation-duration: 10000ms;
 }
+h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #2d2d4d;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.85rem;
+  color: #39396c;
+}
+
+h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #44447a;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 0.65rem;
+  color: #50508a;
+}
+
+h5 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #5c5c99;
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  color: #6666a3;
+}
