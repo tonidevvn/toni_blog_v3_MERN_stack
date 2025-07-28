@@ -2,7 +2,6 @@ import { Link } from "react-router";
 import AuthorBio from "../components/AuthorBio";
 import PostMenuActions from "../components/PostMenuActions";
 import ListCategories from "../components/ListCategories";
-import SearchBox from "../components/SearchBox";
 import CommentBox from "../components/CommentBox";
 import Comments from "../components/Comments";
 

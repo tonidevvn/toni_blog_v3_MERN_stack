@@ -3,22 +3,15 @@ import ListCategories from "../components/ListCategories";
 import CategoryMenuFilters from "../components/CategoryMenuFilters";
 import SearchBox from "../components/SearchBox";
 import { useEffect, useState } from "react";
+import useWindowState from "../hooks/useWindowState";
 
 const PostListPage = () => {
   const [open, setOpen] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth] = useWindowState();
 
   useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-      if (windowWidth > 768) setOpen(false);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+    if (windowWidth > 768 && open) setOpen(false);
+  }, [windowWidth]);
 
   return (
     <div className="PostList">

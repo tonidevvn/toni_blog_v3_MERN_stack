@@ -3,6 +3,7 @@ import { IKImage } from "./IKImage";
 import { FiMenu, FiX } from "react-icons/fi";
 import { Link, NavLink } from "react-router";
 import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
+import useWindowState from "../hooks/useWindowState";
 
 const menus = [
   { title: "Home", link: "" },
@@ -13,19 +14,12 @@ const menus = [
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth] = useWindowState();
 
   useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-      if (windowWidth < 768) setOpen(false);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+    if (windowWidth > 768 && open)
+      setOpen(false);
+  }, [windowWidth]);
 
   return (
     <div className="w-full h-16 md:h-20 flex items-center justify-between">
