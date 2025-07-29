@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { IKImage } from './IKImage'
 import { FiMenu, FiX } from 'react-icons/fi'
 import { Link, NavLink } from 'react-router'
-import { SignedIn, SignedOut, UserButton } from '@clerk/clerk-react'
+import { SignedIn, SignedOut, useAuth, UserButton } from '@clerk/clerk-react'
 import useWindowState from '../hooks/useWindowState'
 
 const menus = [
@@ -15,6 +15,15 @@ const menus = [
 export const Navbar = () => {
   const [open, setOpen] = useState(false)
   const [windowWidth] = useWindowState()
+
+  const { getToken } = useAuth()
+
+  useEffect(() => {
+    getToken().then((token) => {
+      console.log('🚀 ~ Navbar ~ token:', token)
+      return
+    })
+  }, [])
 
   useEffect(() => {
     if (windowWidth > 768 && open) setOpen(false)

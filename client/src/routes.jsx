@@ -5,7 +5,7 @@ import PostListPage from './routes/PostListPage'
 import SinglePostPage from './routes/SinglePostPage'
 import Write from './routes/Write'
 import SignInPage from './routes/SignInPage'
-import SignUpPage from './routes/SignInPage'
+import SignUpPage from './routes/SignUpPage'
 
 const router = createBrowserRouter([
   {
