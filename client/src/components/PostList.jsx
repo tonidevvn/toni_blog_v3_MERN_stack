@@ -1,5 +1,7 @@
 import { Link } from 'react-router'
-import { IKImage } from './IKImage'
+import { useQuery } from '@tanstack/react-query'
+import axios from 'axios'
+import PostCard from './PostCard'
 
 const posts = [
   {
@@ -53,49 +55,39 @@ const posts = [
   }
 ]
 
-const RecentPosts = ({ title }) => {
+const API_END_POINT = import.meta.env.VITE_API_END_POINT
+
+const fetchPosts = async () => {
+  const res = await axios.get(`${API_END_POINT}/posts/`)
+  console.log('🚀 ~ fetchPosts ~ res:', res.data)
+  return res.data
+}
+
+
+const PostList = ({ title }) => {
+  const { isPending, error, data } = useQuery({
+    queryKey: ['repoData'],
+    queryFn: () => fetchPosts()
+  })
+
+  if (isPending) return 'Loading...'
+
+  if (error) return 'An error has occurred: ' + error.message
+
   return (
     <div className='recent-posts'>
       {title ? <h1>{title}</h1> : ''}
       <div className='flex flex-col w-full gap-8'>
-        {posts.map((post, index) => (
-          <div className='recent-post flex w-full lg:h-1/3 gap-6 justify-between' key={`recentPost-${index}`}>
-            <div className='thumbnail w-1/3 max-w-[360px]'>
-              <Link to={post.link}>
-                <IKImage
-                  src={post.thumbnail}
-                  w={360}
-                  className='w-full h-auto aspect-video object-cover  object-center border-white rounded-2xl'
-                />
-              </Link>
-            </div>
-            <div className='post-meta-box flex flex-col w-2/3 gap-1'>
-              <h3 className='post-title font-semibold text-lg md:text-2xl lg:text-2xl xl:text-2xl text-gray-800'>
-                <Link to={post.link}>{post.title}</Link>
-              </h3>
-              <div className='post-meta hidden lg:flex gap-2 items-center mb-2 text-base sm:text-md lg:text-base'>
-                <span>Written by</span>
-                <Link to={post.author.link} className='text-blue-800'>
-                  {post.author.name}
-                </Link>
-                <span>on</span>
-                <Link to={post.category.link} className='text-blue-800'>
-                  {post.category.title}
-                </Link>
-                <span className='text-gray-500'>{post.publishedTime}</span>
-              </div>
-              <div className='post-description text-base lg:text-lg'>{post.description}</div>
-              <div className='post-read-more'>
-                <Link to={post.link} className='text-blue-800 underline'>
-                  Read More
-                </Link>
-              </div>
-            </div>
-          </div>
-        ))}
+        {data && data.length > 0 ? (
+          data.map((dataPost, idx) => {
+    return <PostCard key={idx} dataPost={dataPost} />
+})
+        ) : (
+          <span>No posts be found!</span>
+        )}
       </div>
     </div>
   )
 }
 
-export default RecentPosts
+export default PostList

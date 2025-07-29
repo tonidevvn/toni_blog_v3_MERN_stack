@@ -2,6 +2,7 @@ import { createRoot } from 'react-dom/client'
 import { RouterProvider } from 'react-router'
 import { ClerkProvider } from '@clerk/clerk-react'
 import { rootAuthLoader } from '@clerk/react-router/ssr.server'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import router from './routes'
 import './index.css'
 
@@ -41,8 +42,12 @@ export function ErrorBoundary({ error }) {
   )
 }
 
+const queryClient = new QueryClient()
+
 createRoot(document.getElementById('root')).render(
   <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl='/'>
-    <RouterProvider router={router} />
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
   </ClerkProvider>
 )

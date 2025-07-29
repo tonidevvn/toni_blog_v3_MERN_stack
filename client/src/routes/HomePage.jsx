@@ -1,7 +1,7 @@
 import { Link } from 'react-router'
 import MainCategories from '../components/MainCategories'
 import FeaturedPosts from '../components/FeaturedPosts'
-import RecentPosts from '../components/RecentPosts'
+import PostList from '../components/PostList'
 
 const HomePage = () => {
   return (
@@ -64,7 +64,7 @@ const HomePage = () => {
       {/* FEATURED POSTS */}
       <FeaturedPosts />
       {/* POST LIST */}
-      <RecentPosts title='Recent Posts' />
+      <PostList title='Recent Posts' />
     </div>
   )
 }

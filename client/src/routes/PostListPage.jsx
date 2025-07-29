@@ -1,4 +1,4 @@
-import RecentPosts from '../components/RecentPosts'
+import PostList from '../components/PostList'
 import ListCategories from '../components/ListCategories'
 import CategoryMenuFilters from '../components/CategoryMenuFilters'
 import SearchBox from '../components/SearchBox'
@@ -41,7 +41,7 @@ const PostListPage = () => {
       </div>
       <div className={`flex flex-col md:flex-row gap-5 ${open ? 'flex-col-reverse' : ''}`}>
         <div className='posts w-full lg:w-4/5'>
-          <RecentPosts />
+          <PostList />
         </div>
         {/* Side bar */}
         <div className={open ? `flex flex-col` : `hidden md:flex md:flex-col lg:w-1/5 h-max sticky top-5`}>
