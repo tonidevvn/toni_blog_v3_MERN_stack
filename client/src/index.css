@@ -9,7 +9,7 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-.animatedButton{
+.animatedButton {
   animation-duration: 10000ms;
 }
 h1 {
@@ -62,7 +62,9 @@ h6 {
 .ql-container.ql-snow {
   border: none;
 }
-.ql-container, .ql-editor, .ql-toolbar.ql-snow {  
+.ql-container,
+.ql-editor,
+.ql-toolbar.ql-snow {
   font-family: 'Montserrat', sans-serif;
   font-size: medium;
 }

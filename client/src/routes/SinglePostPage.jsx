@@ -1,17 +1,15 @@
-import { Link } from "react-router";
-import AuthorBio from "../components/AuthorBio";
-import PostMenuActions from "../components/PostMenuActions";
-import ListCategories from "../components/ListCategories";
-import CommentBox from "../components/CommentBox";
-import Comments from "../components/Comments";
+import { Link } from 'react-router'
+import AuthorBio from '../components/AuthorBio'
+import PostMenuActions from '../components/PostMenuActions'
+import ListCategories from '../components/ListCategories'
+import CommentBox from '../components/CommentBox'
+import Comments from '../components/Comments'
 
 const post = {
-  title:
-    "Exploring Modern Technology: Innovations, Trends, and the Future of Digital Transformation",
+  title: 'Exploring Modern Technology: Innovations, Trends, and the Future of Digital Transformation',
   intro:
-    "Discover the latest trends, groundbreaking innovations, and the profound impact of technology on our world with this comprehensive and insightful post. Dive deep into how digital transformation is shaping industries, lifestyles, and the future.",
-  thumbnail:
-    "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+    'Discover the latest trends, groundbreaking innovations, and the profound impact of technology on our world with this comprehensive and insightful post. Dive deep into how digital transformation is shaping industries, lifestyles, and the future.',
+  thumbnail: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80',
   content: `
     <p>
       Welcome to our latest blog post! In this article, we explore the advancements in modern technology and how they impact our daily lives.
@@ -48,58 +46,52 @@ const post = {
     </p>
   `,
   author: {
-    name: "John Doe",
-    link: "/author/john-doe",
+    name: 'John Doe',
+    link: '/author/john-doe'
   },
-  date: "2024-06-01",
-  publishedTime: "June 1, 2024",
+  date: '2024-06-01',
+  publishedTime: 'June 1, 2024',
   category: {
-    title: "Tech",
-    link: "/category/tech",
-  },
-};
+    title: 'Tech',
+    link: '/category/tech'
+  }
+}
 
 const SinglePostPage = () => {
   return (
-    <div className="singlePost">
-      <div className="post-header flex gap-8 py-4">
-        <div className="post-header-left w-full lg:w-3/5">
+    <div className='singlePost'>
+      <div className='post-header flex gap-8 py-4'>
+        <div className='post-header-left w-full lg:w-3/5'>
           <h1>{post.title}</h1>
-          <div className="post-meta hidden lg:flex gap-2 items-center mb-2 text-base sm:text-md lg:text-base">
+          <div className='post-meta hidden lg:flex gap-2 items-center mb-2 text-base sm:text-md lg:text-base'>
             <span>Written by</span>
-            <Link to={post.author.link} className="text-blue-800">
+            <Link to={post.author.link} className='text-blue-800'>
               {post.author.name}
             </Link>
             <span>on</span>
-            <Link to={post.category.link} className="text-blue-800">
+            <Link to={post.category.link} className='text-blue-800'>
               {post.category.title}
             </Link>
-            <span className="text-gray-500">{post.publishedTime}</span>
+            <span className='text-gray-500'>{post.publishedTime}</span>
           </div>
-          <div className="post-intro">{post.intro}</div>
+          <div className='post-intro'>{post.intro}</div>
         </div>
-        <div className="post-header-left hidden lg:block lg:w-2/5">
+        <div className='post-header-left hidden lg:block lg:w-2/5'>
           <Link to={post.link}>
-            <img
-              src={post.thumbnail}
-              className="w-full object-cover object-center border-white rounded-2xl"
-            />
+            <img src={post.thumbnail} className='w-full object-cover object-center border-white rounded-2xl' />
           </Link>
         </div>
       </div>
-      <div className="flex gap-8 ">
-        <div className="post-body flex flex-col gap-8 mt-4 mb-8 w-full lg:w-4/5">
-          <div
-            className="post-content w-full text-justify"
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          ></div>
+      <div className='flex gap-8 '>
+        <div className='post-body flex flex-col gap-8 mt-4 mb-8 w-full lg:w-4/5'>
+          <div className='post-content w-full text-justify' dangerouslySetInnerHTML={{ __html: post.content }}></div>
 
-          <div className="post-comments">
-            <CommentBox title="Comments" />
+          <div className='post-comments'>
+            <CommentBox title='Comments' />
             <Comments />
           </div>
         </div>
-        <div className="post-sidebar hidden md:flex md:flex-col lg:w-1/5 h-max sticky top-4 gap-4">
+        <div className='post-sidebar hidden md:flex md:flex-col lg:w-1/5 h-max sticky top-4 gap-4'>
           {/* Author bio */}
           <AuthorBio />
           {/* Post actions */}
@@ -109,7 +101,7 @@ const SinglePostPage = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SinglePostPage;
+export default SinglePostPage

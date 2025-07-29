@@ -1,7 +1,7 @@
-import { Outlet } from "react-router";
+import { Outlet } from 'react-router'
 
 const App = () => {
-  return <Outlet />;
-};
+  return <Outlet />
+}
 
-export default App;
+export default App
