@@ -5,4 +5,4 @@ router.get('/test', (req, res) => {
   res.send('User route')
 })
 
-module.exports = router
+export default router
